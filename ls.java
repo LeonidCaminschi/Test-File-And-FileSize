@@ -28,7 +28,7 @@ public class ls {
                 System.out.println(entry.getKey() + padding(maxLen - entry.getKey().toString().length()) + compress(entry.getValue()));
             }
 
-            System.out.println(maxLen);
+            // System.out.println(maxLen);
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}

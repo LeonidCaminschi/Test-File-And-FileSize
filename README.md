@@ -18,3 +18,5 @@ to run it just type
 ./script.bs
 ```
 and all the steps will be executed automatically.
+
+P.S. I used the "B" because the .size() function from Path returns data in bytes and not in bits.

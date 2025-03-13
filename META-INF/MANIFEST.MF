@@ -1,1 +1,1 @@
-Main-Class: Main.java
+Main-Class: Main

@@ -24,6 +24,10 @@ public class ls {
                 }
             }
 
+            for (Map.Entry<Path, Long> entry : filesSize.entrySet()) {
+                System.out.println(entry.getKey() + padding(maxLen - entry.getKey().toString().length()) + compress(entry.getValue()));
+            }
+
             System.out.println(maxLen);
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -32,10 +36,22 @@ public class ls {
 
     private static String padding(int maxLen) {
         String padding = "";
-        for (int i = 0; i < maxLen; i++) {
+        for (int i = 0; i < maxLen + 10; i++) {
             padding += " ";
         }
         return padding;
+    }
+
+    private static String compress(long size) {
+        if (size < 1024) {
+            return size + " B";
+        } else if (size < 1024 * 1024) {
+            return size / 1024 + " KB";
+        } else if (size < 1024 * 1024 * 1024) {
+            return size / 1024 / 1024 + " MB";
+        } else {
+            return size / 1024 / 1024 / 1024 + " GB";
+        }
     }
 
     private static long size(Path item) {

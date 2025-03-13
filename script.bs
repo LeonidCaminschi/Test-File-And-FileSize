@@ -1,0 +1,5 @@
+#!/bin/bash
+
+javac Main.java ls.java
+jar cvmf META-INF/MANIFEST.MF app.jar Main.class ls.class
+java -jar app.jar "/home/leonidas"

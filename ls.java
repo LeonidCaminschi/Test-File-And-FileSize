@@ -7,7 +7,8 @@ public class ls {
         try {
 			DirectoryStream<Path> files = Files.newDirectoryStream(dir);
 			for (Path file: files) {
-				System.out.println(file.getFileName() + " " + size(file));
+                Path fileName = file.getFileName();
+				System.out.println(file.getFileName() + padding() + size(file));
                 // System.out.println(file.getFileName());
             }
             files.close();
@@ -16,12 +17,20 @@ public class ls {
 		}
     }
 
+    private static String padding() {
+        return "";
+    }
+
+    private static String compress(long bytes) {
+        return "";
+    }
+
     private static long size(Path item) {
         try {
             BasicFileAttributes attrs = Files.readAttributes(item, BasicFileAttributes.class);
             if (Files.isDirectory(item)) {
                 DirectoryStream<Path> files = Files.newDirectoryStream(item);
-                int fileSize = 0;
+                long fileSize = 0;
                 for (Path file: files) {
                     // System.out.println(file.getFileName());
                     fileSize += attrs.size() + size(file);
